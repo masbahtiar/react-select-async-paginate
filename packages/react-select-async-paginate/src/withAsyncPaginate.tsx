@@ -40,10 +40,10 @@ export function withAsyncPaginate(
   IsMulti extends boolean = false,
   >(props: AsyncPaginateProps<OptionType, Group, Additional, IsMulti>): ReactElement {
     const {
-      components,
-      selectRef,
+      components = {},
+      selectRef = null,      
       isLoading: isLoadingProp,
-      cacheUniqs,
+      cacheUniqs = [],
       ...rest
     } = props;
 
@@ -69,11 +69,11 @@ export function withAsyncPaginate(
     );
   }
 
-  WithAsyncPaginate.defaultProps = {
-    selectRef: null,
-    cacheUniqs: [],
-    components: {},
-  };
+  // WithAsyncPaginate.defaultProps = {
+  //   selectRef: null,
+  //   cacheUniqs: [],
+  //   components: {},
+  // };
 
   return WithAsyncPaginate;
 }
